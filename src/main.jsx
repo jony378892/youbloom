@@ -6,6 +6,6 @@ import UserProvider from "./contexts/UserProvider";
 
 createRoot(document.getElementById("root")).render(
   <UserProvider>
-    <RouterProvider router={router}></RouterProvider>,
+    <RouterProvider router={router}></RouterProvider>
   </UserProvider>,
 );

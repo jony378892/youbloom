@@ -30,6 +30,10 @@ export default function UserProvider({ children }) {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+  }, []);
+
   if (loading) {
     return <Loading />;
   }

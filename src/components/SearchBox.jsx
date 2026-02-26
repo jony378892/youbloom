@@ -6,11 +6,11 @@ export default function SearchBox() {
   const { searchText, setSearchText } = useUser();
 
   return (
-    <div className="mb-5">
-      <label htmlFor="search" className="block font-medium">
+    <div className="my-5">
+      <label htmlFor="search" className="block font-medium text-xl">
         Search in YouBloom
       </label>
-      <div className="mt-2">
+      <div className="mt-2 bg-white">
         <div className="flex items-center rounded-md pl-3 border-gray-400 border">
           <div className="shrink-0 text-base text-gray-400 select-none">
             <IoSearchSharp className="size-6" />

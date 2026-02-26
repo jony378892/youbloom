@@ -18,7 +18,7 @@ export const router = createBrowserRouter([
         Component: Login,
       },
       {
-        path: "/post-detail/:id",
+        path: "/post/detail/:id",
         Component: PostDetail,
       },
     ],

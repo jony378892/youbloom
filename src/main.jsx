@@ -6,7 +6,5 @@ import { router } from "./routes/router";
 import RootLayout from "./Layouts/RootLayout";
 
 createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router}>
-    <RootLayout />
-  </RouterProvider>,
+  <RouterProvider router={router}></RouterProvider>,
 );

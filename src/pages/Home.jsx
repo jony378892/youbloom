@@ -1,4 +1,4 @@
-import SearchBox from "../components/SearchBox";
+import SearchField from "../components/SearchField";
 import useYoubloom from "../hooks/useYoubloom";
 import Post from "../components/Post";
 
@@ -9,7 +9,7 @@ export default function Home() {
     <div className="flex flex-col gap-3 p-5 pb-20 bg-gray-100 min-h-screen">
       <div className="w-full max-w-7xl mx-auto">
         {/* Search Field */}
-        <SearchBox />
+        <SearchField />
 
         {/* Total posts count */}
         <p className="text-sm text-gray-700">

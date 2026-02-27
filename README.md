@@ -72,7 +72,7 @@ youbloom/
 │   │   ├── Loading.jsx
 │   │   ├── Navbar.jsx
 │   │   ├── Post.jsx
-│   │   └── SearchBox.jsx
+│   │   └── SearchField.jsx
 │   ├── contexts/            # Context API setup
 │   │   ├── UserContext.jsx
 │   │   └── UserProvider.jsx
@@ -125,7 +125,7 @@ youbloom/
 - Title and description preview
 - "More Info" button with arrow icon
 
-### SearchBox
+### SearchField
 
 - Icon-based search input
 - Clear button functionality

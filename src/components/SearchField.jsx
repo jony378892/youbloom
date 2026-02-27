@@ -2,7 +2,7 @@ import { IoSearchSharp } from "react-icons/io5";
 import { MdCancel } from "react-icons/md";
 import useYoubloom from "../hooks/useYoubloom";
 
-export default function SearchBox() {
+export default function SearchField() {
   const { searchText, setSearchText } = useYoubloom();
 
   return (

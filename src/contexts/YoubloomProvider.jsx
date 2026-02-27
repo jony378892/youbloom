@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
-import UserContext from "./UserContext";
+import YoubloomContext from "./YoubloomContext";
 import Loading from "../components/Loading";
 
-export default function UserProvider({ children }) {
-  const [user, setUser] = useState(null);
+export default function YoubloomProvider({ children }) {
+  const [user, setUser] = useState(() => {
+    const storedUser = localStorage.getItem("user");
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(null);
   const [searchText, setSearchText] = useState("");
-  const term = searchText.trim().toLocaleLowerCase();
+  const term = searchText.trim().toLowerCase();
 
   const filteredPosts = term
     ? posts.filter(
@@ -30,10 +33,6 @@ export default function UserProvider({ children }) {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const user = localStorage.getItem("user");
-  }, []);
-
   if (loading) {
     return <Loading />;
   }
@@ -49,5 +48,5 @@ export default function UserProvider({ children }) {
     setSearchText,
   };
 
-  return <UserContext value={values}>{children}</UserContext>;
+  return <YoubloomContext value={values}>{children}</YoubloomContext>;
 }

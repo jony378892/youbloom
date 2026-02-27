@@ -1,14 +1,18 @@
 import SearchBox from "../components/SearchBox";
-import useUser from "../hooks/useUser";
+import useYoubloom from "../hooks/useYoubloom";
 import Post from "../components/Post";
 
 export default function Home() {
-  const { filteredPosts } = useUser();
+  const { filteredPosts } = useYoubloom();
 
   return (
     <div className="flex flex-col gap-3 p-5 pb-20 bg-gray-100 min-h-screen">
       <div className="w-full max-w-7xl mx-auto">
         <SearchBox />
+        <p className="text-sm text-gray-700">
+          Total {filteredPosts.length}{" "}
+          {filteredPosts.length <= 1 ? "post " : "posts "} found.
+        </p>
         <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-8 gap-x-5 pt-10">
           {filteredPosts.map((post) => (
             <Post key={post.id} post={post} />

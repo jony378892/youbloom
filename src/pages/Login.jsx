@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import useUser from "../hooks/useUser";
+import useYoubloom from "../hooks/useYoubloom";
 
 export default function Login() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { user, setUser } = useUser();
+  const { setUser } = useYoubloom();
 
   const validatePhoneNumber = (phone) => {
     const phoneRegex = /^\+254\d{9}$/;
@@ -46,6 +46,14 @@ export default function Login() {
           isAuthenticated: true,
         });
 
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            phoneNumber: trimmedPhone,
+            isAuthenticated: true,
+          }),
+        );
+
         setPhoneNumber("");
         navigate("/");
       } else {
@@ -63,9 +71,6 @@ export default function Login() {
   const handlePhoneChange = (e) => {
     const value = e.target.value;
     setPhoneNumber(value);
-    if (error) {
-      setError("");
-    }
   };
 
   return (

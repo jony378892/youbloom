@@ -1,19 +1,19 @@
 import { Link } from "react-router";
-import useUser from "../hooks/useUser";
+import useYoubloom from "../hooks/useYoubloom";
+import Logo from "./Logo";
 
 export default function Navbar() {
-  const { user, setUser } = useUser();
+  const { user, setUser } = useYoubloom();
 
   const handleLogout = () => {
+    localStorage.removeItem("user");
     setUser(null);
   };
 
   return (
     <div className="flex px-5 xl:px-0 py-3 items-center justify-between border-b border-gray-300 mx-auto max-w-7xl">
       <Link to="/">
-        <h2 className="text-xl font-bold text-black rounded-lg  ">
-          <span className="text-blue-600">You</span> Bloom
-        </h2>
+        <Logo />
       </Link>
       <nav>
         <ul className="flex gap-3">

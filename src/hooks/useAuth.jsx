@@ -1,19 +1,8 @@
-import { useState } from "react";
+import { use } from "react";
+import { AuthContext } from "../contexts/auth/AuthContext";
 
 export default function useAuth() {
-  const [user, setUser] = useState(() => {
-    const storedUser = localStorage.getItem("user");
-    return storedUser ? JSON.parse(storedUser) : null;
-  });
+  const authContext = use(AuthContext);
 
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    setUser(null);
-  };
-
-  return {
-    user,
-    setUser,
-    handleLogout,
-  };
+  return authContext;
 }

@@ -38,7 +38,7 @@ export default function PostDetail() {
             className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors"
           >
             <FaArrowLeft size={20} />
-            Back to Posts
+            Back to Homepage
           </Link>
         </div>
       </div>
@@ -88,12 +88,6 @@ export default function PostDetail() {
             >
               Read More Posts
             </Link>
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="inline-block bg-gray-200 hover:bg-gray-300 text-gray-900 font-semibold py-3 px-3 rounded-lg"
-            >
-              Scroll to Top
-            </button>
           </div>
         </div>
       </div>

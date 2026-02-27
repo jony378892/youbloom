@@ -10,6 +10,8 @@ export default function SearchBox() {
       <label htmlFor="search" className="block font-medium text-xl">
         Search in YouBloom
       </label>
+
+      {/* Search Field */}
       <div className="mt-2 bg-white">
         <div className="flex items-center rounded-md pl-3 border-gray-400 border">
           <div className="shrink-0 text-base text-gray-400 select-none">
@@ -24,6 +26,8 @@ export default function SearchBox() {
             className="block min-w-0 grow py-1.5 pr-3 pl-1 placeholder:text-gray-500 focus:outline-none sm:text-sm/6"
             onChange={(e) => setSearchText(e.target.value)}
           />
+
+          {/* SearchText remover */}
           {searchText && (
             <div
               className="shrink-0 text-base text-gray-800 select-none cursor-pointer"

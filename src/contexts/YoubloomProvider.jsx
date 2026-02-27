@@ -12,6 +12,7 @@ export default function YoubloomProvider({ children }) {
   const [searchText, setSearchText] = useState("");
   const term = searchText.trim().toLowerCase();
 
+  // Function for filtering posts
   const filteredPosts = term
     ? posts.filter(
         (post) =>
@@ -20,12 +21,14 @@ export default function YoubloomProvider({ children }) {
       )
     : posts;
 
+    // Responsible for fetching posts
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       const res = await fetch("https://jsonplaceholder.typicode.com/posts");
       const data = await res.json();
 
+      // Slice the posts array
       setPosts(data.slice(0, 20));
       setLoading(false);
     };
@@ -33,9 +36,6 @@ export default function YoubloomProvider({ children }) {
     fetchData();
   }, []);
 
-  if (loading) {
-    return <Loading />;
-  }
 
   const values = {
     posts,

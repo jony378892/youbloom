@@ -11,6 +11,7 @@ export default function Post({ post }) {
           alt={post.title}
           className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-300"
         />
+
         {/* Badge */}
         <div className="absolute top-3 right-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">
           Post #{post.id}
@@ -29,7 +30,7 @@ export default function Post({ post }) {
           {post.body}
         </p>
 
-        {/* Button */}
+        {/* Button for post detail*/}
         <Link to={`/post/detail/${post.id}`} className="mt-auto">
           <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg cursor-pointer py-2.5 px-4 transition-all duration-200 flex items-center justify-center gap-2 group/btn">
             More Info

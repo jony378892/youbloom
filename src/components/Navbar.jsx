@@ -12,9 +12,12 @@ export default function Navbar() {
 
   return (
     <div className="flex px-5 xl:px-0 py-3 items-center justify-between border-b border-gray-300 mx-auto max-w-7xl">
+      {/* Logo */}
       <Link to="/">
         <Logo />
       </Link>
+
+      {/* Login and Logout button */}
       <nav>
         <ul className="flex gap-3">
           <li>

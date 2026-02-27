@@ -14,6 +14,7 @@ export default function Login() {
     return phoneRegex.test(phone);
   };
 
+  // Responsible for handing login and validation
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -105,12 +106,14 @@ export default function Login() {
             <p className="text-xs text-gray-500 mt-2">Ex - +254712345678</p>
           </div>
 
+          {/* Error notification */}
           {error && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-3">
               <p className="text-sm text-red-700">{error}</p>
             </div>
           )}
 
+          {/* Submit button */}
           <button
             type="submit"
             disabled={loading}

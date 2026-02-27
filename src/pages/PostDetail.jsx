@@ -4,21 +4,31 @@ import Loading from "../components/Loading";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaUser } from "react-icons/fa6";
 import { SlCalender } from "react-icons/sl";
+import usePost from "../hooks/usePost";
 
 export default function PostDetail() {
   const [post, setPost] = useState({});
   const [loading, setLoading] = useState(null);
   const { id } = useParams();
+  const { error, setError } = usePost();
 
   useEffect(() => {
     const fetchPost = async () => {
       setLoading(true);
-      const res = await fetch(
-        `https://jsonplaceholder.typicode.com/posts/${id}`,
-      );
-      const data = await res.json();
-      setPost(data);
-      setLoading(false);
+      try {
+        const res = await fetch(
+          `https://jsonplaceholder.typicode.com/posts/${id}`,
+        );
+
+        if (res.status === 404) {
+          throw new Error("Error fetching post");
+        }
+        const data = await res.json();
+        setPost(data);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+      }
     };
 
     fetchPost();
@@ -26,6 +36,14 @@ export default function PostDetail() {
 
   if (loading) {
     return <Loading />;
+  }
+
+  if (error) {
+    return (
+      <div className="text-center py-12">
+        <p className="text-red-500 text-xl font-bold">{error}</p>
+      </div>
+    );
   }
 
   return (

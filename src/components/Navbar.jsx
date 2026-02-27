@@ -1,14 +1,9 @@
 import { Link } from "react-router";
-import useYoubloom from "../hooks/useYoubloom";
 import Logo from "./Logo";
+import useAuth from "../hooks/useAuth";
 
 export default function Navbar() {
-  const { user, setUser } = useYoubloom();
-
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    setUser(null);
-  };
+  const { user, handleLogout } = useAuth();
 
   return (
     <div className="flex px-5 xl:px-0 py-3 items-center justify-between border-b border-gray-300 mx-auto max-w-7xl">

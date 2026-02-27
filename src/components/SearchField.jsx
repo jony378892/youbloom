@@ -1,9 +1,9 @@
 import { IoSearchSharp } from "react-icons/io5";
 import { MdCancel } from "react-icons/md";
-import useYoubloom from "../hooks/useYoubloom";
+import usePost from "../hooks/usePost";
 
 export default function SearchField() {
-  const { searchText, setSearchText } = useYoubloom();
+  const { searchText, setSearchText } = usePost();
 
   return (
     <div className="my-5">

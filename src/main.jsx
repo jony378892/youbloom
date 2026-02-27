@@ -2,10 +2,10 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { RouterProvider } from "react-router";
 import { router } from "./routes/router";
-import YoubloomProvider from "./contexts/YoubloomProvider";
+import PostProvider from "./contexts/PostProvider";
 
 createRoot(document.getElementById("root")).render(
-  <YoubloomProvider>
+  <PostProvider>
     <RouterProvider router={router}></RouterProvider>
-  </YoubloomProvider>,
+  </PostProvider>,
 );

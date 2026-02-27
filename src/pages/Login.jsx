@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import useYoubloom from "../hooks/useYoubloom";
 
 export default function Login() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { setUser } = useYoubloom();
 
   const validatePhoneNumber = (phone) => {
     const phoneRegex = /^\+254\d{9}$/;
@@ -42,11 +40,6 @@ export default function Login() {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       if (trimmedPhone === "+254712345678") {
-        setUser({
-          phoneNumber: trimmedPhone,
-          isAuthenticated: true,
-        });
-
         localStorage.setItem(
           "user",
           JSON.stringify({

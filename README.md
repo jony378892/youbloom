@@ -68,16 +68,18 @@ npm run preview
 youbloom/
 ├── src/
 │   ├── components/          # Reusable UI components
-│   │   ├── Button.jsx
+│   │   ├── Footer.jsx
 │   │   ├── Loading.jsx
+│   │   ├── Logo.jsx
 │   │   ├── Navbar.jsx
 │   │   ├── Post.jsx
 │   │   └── SearchField.jsx
 │   ├── contexts/            # Context API setup
-│   │   ├── UserContext.jsx
-│   │   └── UserProvider.jsx
+│   │   ├── PostContext.jsx
+│   │   └── PostProvider.jsx
 │   ├── hooks/               # Custom React hooks
-│   │   └── useUser.jsx
+│   │   ├── useAuth.jsx
+│   │   └── usePost.jsx
 │   ├── Layouts/             # Layout components
 │   │   └── RootLayout.jsx
 │   ├── pages/               # Page components
@@ -85,12 +87,16 @@ youbloom/
 │   │   ├── Login.jsx
 │   │   └── PostDetail.jsx
 │   ├── routes/              # Router configuration
-│   │   └── router.js
+│   │   └── router.jsx
+│   ├── assets/              # Static assets
+│   │   └── react.svg
 │   ├── index.css            # Global styles
 │   └── main.jsx             # App entry point
 ├── public/                  # Static assets
 ├── package.json             # Project dependencies
 ├── vite.config.js           # Vite configuration
+├── eslint.config.js         # ESLint configuration
+├── vercel.json              # Vercel deployment config
 └── README.md
 ```
 
@@ -111,32 +117,47 @@ youbloom/
 
 ## 🔍 Search Functionality
 
-- Search posts by title or description
+- Search posts by title or body description
 - Real-time filtering as you type
 - Clear button to reset search
+- Full-text search across all posts
+- Case-insensitive matching
 
 ## 🎨 UI Components
 
-### Post Card
+### Post Card (`Post.jsx`)
 
-- Responsive grid layout (1-4 columns)
+- Responsive grid layout (1-4 columns based on screen size)
 - Beautiful image with hover zoom effect
 - Post ID badge
-- Title and description preview
+- Title and description preview with line clamping
 - "More Info" button with arrow icon
+- Smooth transitions and animations
 
-### SearchField
+### SearchField (`SearchField.jsx`)
 
-- Icon-based search input
-- Clear button functionality
+- Interactive search input
+- Clear button functionality with cancel icon
 - Real-time search filtering
 - Full-width responsive design
+- Placeholder text for guidance
 
-### Navigation
+### Navigation (`Navbar.jsx`)
 
-- Top navigation bar
+- Top navigation bar with logo
 - Back button on detail pages
-- Responsive links and routing
+- Responsive layout
+- Logo component for branding
+
+### Loading (`Loading.jsx`)
+
+- Centered spinning loader icon
+- Full-height component
+- Animated loading state
+
+### Footer (`Footer.jsx`)
+
+- Application footer with branding
 
 ## 📦 Dependencies
 
@@ -144,20 +165,45 @@ youbloom/
 - **Vite** - Build tool and dev server
 - **React Router** - Client-side routing
 - **Tailwind CSS** - Utility-first CSS framework
-- **React Icons** - Beautiful icon library
+- **React Icons** - Beautiful icon library (including react-icons)
 
-## 🌐 API
+## 🌐 API Integration
 
 The application uses the JSONPlaceholder API for mock data:
 
-- Posts: `https://jsonplaceholder.typicode.com/posts`
-- Images: `https://picsum.photos/` for random post images
+- **Posts API**: `https://jsonplaceholder.typicode.com/posts`
+- **Images**: `https://picsum.photos/` for random post images
+- Fetches top 20 posts for display
+- Automatic error handling for API failures
 
 ## 📱 Responsive Breakpoints
 
-- **Mobile**: Single column layout
-- **Tablet**: 2-3 columns layout
-- **Desktop**: 3-4 columns layout
+- **Mobile (xs)**: Single column layout
+- **Tablet (md - lg)**: 2-3 columns layout
+- **Desktop (xl)**: 4 columns layout
+- Tailwind CSS breakpoints used for responsive design
+
+## 🔧 Technical Implementation
+
+### State Management
+
+- **Context API** - Global state management for posts and user authentication
+- **PostProvider** - Manages post data, loading, error, and search state
+- **PostContext** - Centralized context for post-related data
+- **usePost Hook** - Custom hook for accessing post context
+
+### Loading & Error Handling
+
+- **Loading State** - Shows spinner while fetching posts
+- **Error State** - Displays error messages if API fails
+- **Empty State** - Shows message when no posts match search criteria
+
+### Search Implementation
+
+- Real-time filtering using `.includes()` method
+- Searches both post title and body content
+- Case-insensitive search
+- Trims whitespace for accurate matching
 
 ## 🔧 Configuration
 

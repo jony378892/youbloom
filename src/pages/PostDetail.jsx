@@ -97,16 +97,6 @@ export default function PostDetail() {
               {post.body}
             </p>
           </div>
-
-          {/* Call to action */}
-          <div className="mt-12 flex gap-4">
-            <Link
-              to="/"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-3 rounded-lg"
-            >
-              Read More Posts
-            </Link>
-          </div>
         </div>
       </div>
     </div>
